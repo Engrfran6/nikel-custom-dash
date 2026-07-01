@@ -217,16 +217,15 @@ function BottomNav({active, onNav}: {active: Screen; onNav: (s: Screen) => void}
 // ─── Home Screen ─────────────────────────────────────────────────────────────
 function HomeScreen() {
   return (
-    <div className="flex flex-col h-full overflow-hidden" style={{background: NAVY}}>
-      {/* Header */}
-      <div className="px-5 pt-8 pb-6">
+    <div className="flex flex-col h-full" style={{background: NAVY}}>
+      {/* Header - fixed/sticky */}
+      <div className="px-5 pt-8 pb-6 flex-shrink-0">
         <p className="text-white text-base font-medium mb-1">{USER.name}</p>
         <div className="flex items-center justify-between">
           <p className="text-white font-bold" style={{fontSize: 34, letterSpacing: "-0.5px"}}>
             {fmtAmount(USER.balance)}
           </p>
-
-          <div className="flex items-center gap-1 px-3 py-1.5 ">
+          <div className="flex items-center gap-1 px-3 py-1.5">
             <span
               style={{fontSize: 13, background: ORANGE}}
               className="flex items-center justify-center rounded-full h-4 w-4">
@@ -239,66 +238,66 @@ function HomeScreen() {
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content - scrollable */}
       <div
         className="flex-1 overflow-y-auto rounded-t-3xl -mt-3 relative"
         style={{background: "#f8f9fb"}}>
-        {/* Section header */}
-        <div className="flex items-center justify-between px-5 pt-5 pb-3">
-          <div className="flex items-center gap-1.5">
-            <span className="font-semibold text-base" style={{color: "#111827"}}>
-              Kontobewegungen
-            </span>
-            <Download size={15} color="#6b7280" />
-          </div>
-          <button
-            className="font-medium underline underline-offset-2"
-            style={{color: NAVY, fontSize: 13}}>
-            Meine Kontoauszüge
-          </button>
-        </div>
-
-        {/* Transaction groups */}
-        {TRANSACTIONS.map((group) => (
-          <div key={group.date}>
-            <p className="px-5 py-2" style={{fontSize: 12, color: "#9ca3af", fontWeight: 500}}>
-              {group.date}
-            </p>
-            <div className="mx-4 rounded-2xl overflow-hidden" style={{background: "#fff"}}>
-              {group.items.map((tx, idx) => (
-                <div key={tx.id}>
-                  {idx > 0 && <div className="mx-4" style={{height: 1, background: "#e5e7eb"}} />}
-                  <button className="w-full flex items-center gap-3 px-4 py-3.5 text-left active:bg-gray-50">
-                    <Avatar initials={tx.initials} size={42} />
-                    <div className="flex-1 min-w-0">
-                      <p
-                        className="font-semibold truncate"
-                        style={{fontSize: 14, color: "#111827"}}>
-                        {tx.name}
-                      </p>
-                      <p className="mt-0.5" style={{fontSize: 12, color: "#6b7280"}}>
-                        {tx.time} • {tx.desc}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1 flex-shrink-0">
-                      <span
-                        className="font-semibold"
-                        style={{
-                          fontSize: 14,
-                          color: tx.amount > 0 ? GREEN : "#111827",
-                        }}>
-                        {tx.amount > 0 ? fmtAmount(tx.amount) : fmtAmount(tx.amount)}
-                      </span>
-                      <ChevronRight size={15} color="#d1d5db" />
-                    </div>
-                  </button>
-                </div>
-              ))}
+        <div className="pb-6">
+          {/* Section header */}
+          <div className="flex items-center justify-between px-5 pt-5 pb-3">
+            <div className="flex items-center gap-1.5">
+              <span className="font-semibold text-base" style={{color: "#111827"}}>
+                Kontobewegungen
+              </span>
+              <Download size={15} color="#6b7280" />
             </div>
+            <button
+              className="font-medium underline underline-offset-2"
+              style={{color: NAVY, fontSize: 13}}>
+              Meine Kontoauszüge
+            </button>
           </div>
-        ))}
 
-        <div className="h-6" />
+          {/* Transaction groups */}
+          {TRANSACTIONS.map((group) => (
+            <div key={group.date}>
+              <p className="px-5 py-2" style={{fontSize: 12, color: "#9ca3af", fontWeight: 500}}>
+                {group.date}
+              </p>
+              <div className="mx-4 rounded-2xl overflow-hidden" style={{background: "#fff"}}>
+                {group.items.map((tx, idx) => (
+                  <div key={tx.id}>
+                    {idx > 0 && <div className="mx-4" style={{height: 1, background: "#e5e7eb"}} />}
+                    <button className="w-full flex items-center gap-3 px-4 py-3.5 text-left active:bg-gray-50">
+                      <Avatar initials={tx.initials} size={42} />
+                      <div className="flex-1 min-w-0">
+                        <p
+                          className="font-semibold truncate"
+                          style={{fontSize: 14, color: "#111827"}}>
+                          {tx.name}
+                        </p>
+                        <p className="mt-0.5" style={{fontSize: 12, color: "#6b7280"}}>
+                          {tx.time} • {tx.desc}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1 flex-shrink-0">
+                        <span
+                          className="font-semibold"
+                          style={{
+                            fontSize: 14,
+                            color: tx.amount > 0 ? GREEN : "#111827",
+                          }}>
+                          {fmtAmount(tx.amount)}
+                        </span>
+                        <ChevronRight size={15} color="#d1d5db" />
+                      </div>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -571,9 +570,9 @@ function ProfileScreen({setScreen}: {setScreen: (value: Screen) => void}) {
   ];
 
   return (
-    <div className="flex flex-col h-full overflow-y-auto">
+    <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center px-5 py-6 bg-white border-b border-gray-400 relative">
+      <div className="flex items-center px-5 py-6 bg-white border-b border-gray-400 relative flex-shrink-0">
         <ArrowLeft
           size={22}
           color="#111827"
@@ -661,11 +660,11 @@ function ProfileScreen({setScreen}: {setScreen: (value: Screen) => void}) {
 // ─── Card Screen (placeholder) ───────────────────────────────────────────────
 function CardScreen() {
   return (
-    <div className="flex flex-col h-full overflow-y-auto" style={{background: NAVY}}>
+    <div className="flex flex-col h-full " style={{background: NAVY}}>
       <div className="px-5 pt-8 pb-6">
         <p className="text-white font-semibold text-lg">Meine Karte</p>
       </div>
-      <div className="flex-1 rounded-t-3xl -mt-3 bg-white flex flex-col items-center justify-center gap-4 px-6">
+      <div className="flex-1 rounded-t-3xl overflow-y-auto -mt-3 bg-white flex flex-col items-center justify-center gap-4 px-6">
         {/* Card visual */}
         <div
           className="w-full rounded-2xl p-6 flex flex-col justify-between"
@@ -718,11 +717,11 @@ function CardScreen() {
 // ─── Menu Screen (placeholder) ───────────────────────────────────────────────
 function MenuScreen() {
   return (
-    <div className="flex flex-col h-full overflow-y-auto" style={{background: NAVY}}>
+    <div className="flex flex-col h-full" style={{background: NAVY}}>
       <div className="px-5 pt-8 pb-6">
         <p className="text-white font-semibold text-lg">Menü</p>
       </div>
-      <div className="flex-1 rounded-t-3xl -mt-3 bg-white px-4 pt-6">
+      <div className="flex-1 rounded-t-3xl overflow-y-auto -mt-3 bg-white px-4 pt-6">
         <div className="rounded-2xl overflow-hidden" style={{background: "#f8f9fb"}}>
           {[
             "Kontoauszüge",
