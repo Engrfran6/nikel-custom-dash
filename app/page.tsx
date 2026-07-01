@@ -770,7 +770,7 @@ export default function App() {
         className="relative flex flex-col overflow-hidden shadow-2xl"
         style={{
           width: "100%",
-          height: "100dvh",
+          height: "100vh",
           background: "#f2f3f7",
         }}>
         {/* Screen content */}
