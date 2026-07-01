@@ -770,11 +770,13 @@ export default function App() {
         className="relative flex flex-col overflow-hidden shadow-2xl"
         style={{
           width: "100%",
+          maxWidth: "430px", // Added max width for phone frame
           height: "100vh",
+          maxHeight: "932px", // Added max height for phone frame (iPhone 14 Pro Max size)
           background: "#f2f3f7",
         }}>
         {/* Screen content */}
-        <div className="flex-1 overflow-hidden flex flex-col">{screenMap[screen]}</div>
+        <div className="flex-1 overflow-hidden flex flex-col min-h-0">{screenMap[screen]}</div>
 
         {/* Bottom nav */}
         <BottomNav active={screen} onNav={setScreen} />
