@@ -763,16 +763,21 @@ export default function App() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen w-full"
-      style={{background: "#e8eaf0", fontFamily: "'Inter', sans-serif"}}>
+      className="flex items-center justify-center w-full"
+      style={{
+        background: "#e8eaf0",
+        fontFamily: "'Inter', sans-serif",
+        height: "100vh",
+        overflow: "hidden", // Prevents body scrolling
+      }}>
       {/* Phone frame */}
       <div
         className="relative flex flex-col overflow-hidden shadow-2xl"
         style={{
           width: "100%",
-          maxWidth: "430px", // Added max width for phone frame
+          maxWidth: "430px",
           height: "100vh",
-          maxHeight: "932px", // Added max height for phone frame (iPhone 14 Pro Max size)
+          maxHeight: "932px",
           background: "#f2f3f7",
         }}>
         {/* Screen content */}
