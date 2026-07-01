@@ -218,7 +218,7 @@ function BottomNav({active, onNav}: {active: Screen; onNav: (s: Screen) => void}
 function HomeScreen() {
   return (
     <div className="flex flex-col h-full" style={{background: NAVY}}>
-      {/* Header - fixed/sticky */}
+      {/* Header - fixed */}
       <div className="px-5 pt-8 pb-6 flex-shrink-0">
         <p className="text-white text-base font-medium mb-1">{USER.name}</p>
         <div className="flex items-center justify-between">
@@ -239,12 +239,10 @@ function HomeScreen() {
       </div>
 
       {/* Content - scrollable */}
-      <div
-        className="flex-1 overflow-y-auto rounded-t-3xl -mt-3 relative"
-        style={{background: "#f8f9fb"}}>
-        <div className="pb-6">
+      <div className="flex-1 overflow-y-auto rounded-t-3xl -mt-3" style={{background: "#f8f9fb"}}>
+        <div className="pt-5 pb-6">
           {/* Section header */}
-          <div className="flex items-center justify-between px-5 pt-5 pb-3">
+          <div className="flex items-center justify-between px-5 pb-3">
             <div className="flex items-center gap-1.5">
               <span className="font-semibold text-base" style={{color: "#111827"}}>
                 Kontobewegungen
@@ -766,8 +764,8 @@ export default function App() {
       style={{
         background: "#e8eaf0",
         fontFamily: "'Inter', sans-serif",
-        height: "100vh",
-        overflow: "hidden", // Prevents body scrolling
+        height: "100dvh", // Changed from 100vh to 100dvh
+        overflow: "hidden",
       }}>
       {/* Phone frame */}
       <div
@@ -775,7 +773,7 @@ export default function App() {
         style={{
           width: "100%",
           maxWidth: "430px",
-          height: "100vh",
+          height: "100dvh", // Changed from 100vh to 100dvh
           maxHeight: "932px",
           background: "#f2f3f7",
         }}>
