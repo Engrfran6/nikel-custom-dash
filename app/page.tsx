@@ -15,6 +15,7 @@ import {
   Check,
   ArrowLeft,
 } from "lucide-react";
+import Link from "next/link";
 
 // ─── Brand colors ───────────────────────────────────────────────────────────
 const NAVY = "#1C3160";
@@ -536,7 +537,7 @@ function TransferScreen() {
 }
 
 // ─── Profile / Settings Screen ─────────────────────────────────────────────
-function ProfileScreen() {
+function ProfileScreen({setScreen}: {setScreen: (value: Screen) => void}) {
   const [copied, setCopied] = useState(false);
 
   function copyIban() {
@@ -573,7 +574,12 @@ function ProfileScreen() {
     <div className="flex flex-col h-full overflow-y-auto">
       {/* Header */}
       <div className="flex items-center px-5 py-6 bg-white border-b border-gray-400 relative">
-        <ArrowLeft size={22} color="#111827" className="absolute left-5" />
+        <ArrowLeft
+          size={22}
+          color="#111827"
+          className="absolute left-5"
+          onClick={() => setScreen("konto")}
+        />
         <p className="text-black/90 text-sm mt-0.5 flex-1 text-center">Tus datos bancarios</p>
       </div>
 
@@ -751,7 +757,7 @@ export default function App() {
     konto: <HomeScreen />,
     karte: <CardScreen />,
     transfer: <TransferScreen />,
-    profil: <ProfileScreen />,
+    profil: <ProfileScreen setScreen={setScreen} />,
     menu: <MenuScreen />,
   };
 
@@ -764,9 +770,7 @@ export default function App() {
         className="relative flex flex-col overflow-hidden shadow-2xl"
         style={{
           width: "100%",
-          maxWidth: 430,
           height: "100dvh",
-          maxHeight: 900,
           background: "#f2f3f7",
         }}>
         {/* Screen content */}
