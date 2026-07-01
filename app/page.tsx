@@ -15,12 +15,11 @@ import {
   Check,
   ArrowLeft,
 } from "lucide-react";
-import Link from "next/link";
 
 // ─── Brand colors ───────────────────────────────────────────────────────────
 const NAVY = "#1C3160";
 const ORANGE = "#F5631D";
-const GREEN = "#25C97A";
+const GREEN = "#31a26b";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 const USER = {
@@ -56,10 +55,10 @@ const TRANSACTIONS: TxGroup[] = [
     items: [
       {
         id: 3,
-        initials: "CL",
-        name: "Einkauf",
+        initials: "RE",
+        name: "Rewe",
         time: "12:54",
-        desc: "Lebensmitteleinkauf",
+        desc: "Wocheneinkauf - Rewe",
         amount: -88.29,
       },
     ],
@@ -69,18 +68,18 @@ const TRANSACTIONS: TxGroup[] = [
     items: [
       {
         id: 2,
-        initials: "TK",
-        name: "Einkauf",
+        initials: "AL",
+        name: "Aldi",
         time: "12:58",
-        desc: "Lebensmitteleinkauf",
+        desc: "Lebensmittel - Aldi",
         amount: -31.0,
       },
       {
         id: 5,
-        initials: "SP",
-        name: "Einkauf",
+        initials: "ED",
+        name: "Edeka",
         time: "09:12",
-        desc: "Lebensmitteleinkauf",
+        desc: "Brot & Backwaren - Edeka",
         amount: -29.9,
       },
     ],
