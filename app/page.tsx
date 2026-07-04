@@ -55,10 +55,10 @@ const TRANSACTIONS: TxGroup[] = [
     items: [
       {
         id: 3,
-        initials: "SB",
-        name: "Online-Abo",
+        initials: "MT",
+        name: "Monatsabo",
         time: "10:40",
-        desc: "Monatliches Abonnement - Streaming",
+        desc: "Monatliches Abonnement - Streamingdienst",
         amount: -1.99,
       },
     ],
