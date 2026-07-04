@@ -56,7 +56,7 @@ const TRANSACTIONS: TxGroup[] = [
       {
         id: 1,
         initials: "MM",
-        name: "Max Mustermann",
+        name: "Fabio Di Costa",
         time: "10:40",
         desc: "Überweisung an externes Konto",
         amount: -2.0,
