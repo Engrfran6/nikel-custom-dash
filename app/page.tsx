@@ -54,21 +54,20 @@ const TRANSACTIONS: TxGroup[] = [
     date: "Freitag, 03. Juli",
     items: [
       {
-        id: 3,
-        initials: "MT",
-        name: "Monatsabo",
+        id: 1,
+        initials: "MM",
+        name: "Max Mustermann",
         time: "10:40",
-        desc: "Monatliches Abonnement - Streamingdienst",
-        amount: -1.99,
+        desc: "Überweisung an externes Konto",
+        amount: -2.0,
       },
     ],
   },
-
   {
     date: "Montag, 29. Juni",
     items: [
       {
-        id: 3,
+        id: 2,
         initials: "RE",
         name: "Rewe",
         time: "12:54",
@@ -81,7 +80,7 @@ const TRANSACTIONS: TxGroup[] = [
     date: "Mittwoch, 17. Juni",
     items: [
       {
-        id: 2,
+        id: 3,
         initials: "AL",
         name: "Aldi",
         time: "12:58",
@@ -89,7 +88,7 @@ const TRANSACTIONS: TxGroup[] = [
         amount: -31.0,
       },
       {
-        id: 5,
+        id: 4,
         initials: "ED",
         name: "Edeka",
         time: "09:12",
@@ -102,7 +101,7 @@ const TRANSACTIONS: TxGroup[] = [
     date: "Mittwoch, 3. Juni",
     items: [
       {
-        id: 4,
+        id: 5,
         initials: "MM",
         name: "EINZAHLUNG VON JEMANDEM",
         time: "12:44",
