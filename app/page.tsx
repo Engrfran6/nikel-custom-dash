@@ -51,6 +51,20 @@ interface TxGroup {
 
 const TRANSACTIONS: TxGroup[] = [
   {
+    date: "Freitag, 03. Juli",
+    items: [
+      {
+        id: 3,
+        initials: "SB",
+        name: "Online-Abo",
+        time: "10:40",
+        desc: "Monatliches Abonnement - Streaming",
+        amount: -1.99,
+      },
+    ],
+  },
+
+  {
     date: "Montag, 29. Juni",
     items: [
       {
